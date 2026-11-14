@@ -1,0 +1,6 @@
+# dsh-wb-credits bundle patch: inserts the credits row into the web profile.
+# Install with:
+#   dsh plugin --profile desktop add link:"D:/Desktop/DSH插件/dsh-wb-credits"
+- insert:
+    - id: wb-credits
+      name: dsh-wb-credits

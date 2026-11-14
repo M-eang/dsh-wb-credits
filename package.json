@@ -1,0 +1,45 @@
+{
+  "name": "dsh-wb-credits",
+  "version": "1.0.0",
+  "author": "M-eang",
+  "private": false,
+  "description": "在 DSH 侧边栏底部显示网关账号积分卡（sidebar.footer.action 座位，自带样式表、宽度自适应铺满）：总量、未来 7 天到期、首到期。provider 可选 api（只读快照接口，可分发）/ panel（面板登录）/ ssh（读网关主机 accounts/ 快照）。",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-slots"
+      ]
+    }
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "react": "^18.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/M-eang/dsh-wb-credits.git"
+  },
+  "homepage": "https://github.com/M-eang/dsh-wb-credits#readme",
+  "bugs": {
+    "url": "https://github.com/M-eang/dsh-wb-credits/issues"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,25 @@
+[Unit]
+Description=dsh-wb-credits read-only snapshot API
+Documentation=file:///opt/wb-credits-api/README.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+Environment=WB_ACCOUNTS_DIR=/opt/wb-proxy/accounts
+Environment=WB_CREDITS_API_HOST=127.0.0.1
+Environment=WB_CREDITS_API_PORT=8799
+Environment=WB_CREDITS_API_TOKEN_FILE=/opt/wb-credits-api/token
+ExecStart=/usr/bin/python3 /opt/wb-credits-api/wb-credits-api.py
+Restart=always
+RestartSec=3
+# The accounts dir is 0700 root and we only ever read it.
+User=root
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadOnlyPaths=/opt/wb-proxy/accounts
+
+[Install]
+WantedBy=multi-user.target
